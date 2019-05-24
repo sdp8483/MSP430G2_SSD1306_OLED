@@ -16,7 +16,7 @@ To use this library you will need the following:
 The Library was written using Code Composer Studio 9.0.1.00004 and TI MSP430 complier version 18.12.2.LTS. Other versions may work.
 
 ### Installing
-A working example is available in the [MSP430G_SSD1306](/MSP430G_SDD1306) subdirectory. Copy the following files from this repository into your Code Composer Studio project:
+A working example is available in the [MSP430G_SSD1306](https://github.com/sdp8483/MSP430G2_SSD1306_OLED/tree/master/MSP430G2_SSD1306) subdirectory. Copy the following files from this repository into your Code Composer Studio project:
 - main.c
 - i2c.h
 - i2c.c
