@@ -41,7 +41,7 @@ The following commands are used:
 `i2c_init(void)`  
 Initialize I2C on P1.6 and P1.7 
 
-`ssd1306_init(void)`
+`ssd1306_init(void)`  
 Initialize SSD1306 display, this sends all the setup commands to configure the display.
 
 `ssd1306_clearDisplay(void)`  
