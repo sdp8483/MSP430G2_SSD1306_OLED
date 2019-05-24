@@ -51,7 +51,7 @@ Clear Display
 `ssd1306_printText(uint8_t x, uint8_t y, char *ptString)`  
 Print single line of text on row `y` starting at horizontal pixel `x`. There are a total of `7` rows starting at `1`. The horizontal starting position can be from `0` to `127`.
 
-`ssd1306_printTextBlock(uint8_t x, uint8_t y, char *ptString)`
+`ssd1306_printTextBlock(uint8_t x, uint8_t y, char *ptString)`  
 Print a block of text that can span multiple lines, the code wil automagically split up the text on multiple lines. It will print the text block starting on row `y` at horizontal pixel `x`. There are a total of `7` rows starting at `1`. The horizontal starting position can be from `0` to `127`. Store the text block as a `char` array. Due to a bug add one extra element to the `char` array. For example:  
 `char txtBlock[93] = "This is a long multiline text block. The code will automatically add extra lines as needed."`
 
