@@ -8,11 +8,31 @@ This is a simple library for interfacing a MSP430G2 LaunchPad with a 128x64 SSD1
 To use this library you will need the following:
 - MSP-EXP430G2 TI LaunchPad or MSP430G2553 uC
 - Code Composer Studio
-- Wires to connect display to LauchPad
+- SSD1306 OLED with I2C
+- 2x 10k or other value pullup resistors
+- Wires for connecting display to LauchPad
+- Breadboard
 
 The Library was written using Code Composer Studio 9.0.1.00004 and TI MSP430 complier version 18.12.2.LTS. Other versions may work.
 
 ### Installing
-Copy the contents of this repository into your Code Composer Studio project, importing it may also work so give that a try.
+Copy the following files from this repository into your Code Composer Studio project:
+- main.c
+- i2c.h
+- i2c.c
+- ssd1306.h
+- ssd1306.c
+- font_5x7.h
+
+Importing it may also work so give that a try.
+
+### Hookup
+Connect Vcc on the display to 3.3v on the LauchPad.
+Connect Gnd on the display to gnd on the lauchPad.
+Use pullup resistors to connect the SLC and SDA pins to 3.3v.
+Connect SLC on the display to P1.6 on the LauchPad
+Connect SDA on the display to P1.7 on the LauchPad
+
+
 
 ## Usage
