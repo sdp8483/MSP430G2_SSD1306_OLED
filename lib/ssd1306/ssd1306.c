@@ -131,31 +131,41 @@ void ssd1306_printTextBlock(uint8_t x, uint8_t y, char *ptString) {
     char word[12];
     uint8_t i;
     uint8_t endX = x;
-    while (*ptString != '\0'){
-        i = 0;
-        while ((*ptString != ' ') && (*ptString != '\0')) {
-            word[i] = *ptString;
-            ptString++;
-            i++;
-            endX += 6;
-        }
 
-        word[i++] = '\0';
+    if (*ptString != '\0')
+        do {
+            i = 0; 
+            while ((*ptString != ' ') && (*ptString != '\0') && i <= 10) {
+                word[i] = *ptString;
+                ptString++;
+                i++;
+                endX += 6;
+            }
 
-        if (endX >= 127) {
-            x = 0;
-            y++;
-            ssd1306_printText(x, y, word);
-            endX = (i * 6);
-            x = endX;
-        } else {
-            ssd1306_printText(x, y, word);
-            endX += 6;
-            x = endX;
-        }
-        ptString++;
-    }
+            word[i++] = '\0'; //++ for line 25 to work as space would leave endX to remain zero
 
+            if (endX >= 127) {
+                x = 0;
+                y++;
+                if (y > 7)
+                    break; //prevent overflow
+                ssd1306_printText(x, y, word);
+                endX = (i * 6);
+                x = endX;
+            } else {
+                ssd1306_printText(x, y, word);
+                endX += 6;
+                x = endX;
+            }
+
+            //either space or null broke second while. Prevent pt from skipping null if so.
+            if (i <= 10 && *ptString != '\0') {
+                ptString++;
+            } else if ((endX - 6) >= 0) { //buffer(char word[12]) filled, reverse the spacing (line 29 & 30)
+                endX -= 6;              //prevent underflow
+                x = endX;
+            }
+        } while (*ptString != '\0');           
 }
 
 

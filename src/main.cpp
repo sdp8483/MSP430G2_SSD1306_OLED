@@ -34,12 +34,7 @@ int main(void) {
         // =========================================
         // Display a Long Text Block
         // =========================================
-        // There seems to be a bug in the ssd1306_printTextBlock code,
-        //  long text blocks like below need 1 extra character in their array
-        //  so the code does not read outside of the array. The below 91 character
-        //  text block should only need a array of 92 but to fix the bug use an array of 93.
-        //  !!!! MUST FIX BUG IN THE FUTURE !!!!
-        char txtBlock[93] = "This is a long multiline text block. The code will automatically add extra lines as needed.";
+        char txtBlock[92] = "This is a long multiline text block. The code will automatically add extra lines as needed.";
         ssd1306_printTextBlock(0, 1, txtBlock);
         LONG_DELAY;                             // Avoid delay loops in real code, use timer
         ssd1306_clearDisplay();
