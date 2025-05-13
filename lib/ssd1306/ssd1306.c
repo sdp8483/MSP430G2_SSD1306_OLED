@@ -3,10 +3,8 @@
  */
 
 #include "ssd1306.h"
-#include <msp430.h>
-#include <stdint.h>
-#include "font_5x7.h"
-#include "i2c.h"
+
+unsigned char buffer[17];                                               // buffer for data transmission to screen
 
 /* ====================================================================
  * Horizontal Centering Number Array
@@ -164,15 +162,15 @@ void ssd1306_printTextBlock(uint8_t x, uint8_t y, char *ptString) {
 void ssd1306_printUI32( uint8_t x, uint8_t y, uint32_t val, uint8_t Hcenter ) {
     char text[14];
 
-    ultoa(val, text);
+    ssd1306_ultoa(val, text);
     if (Hcenter) {
-        ssd1306_printText(HcenterUL[digits(val)], y, text);
+        ssd1306_printText(HcenterUL[ssd1306_digits(val)], y, text);
     } else {
         ssd1306_printText(x, y, text);
     }
 } // end ssd1306_printUI32
 
-uint8_t digits(uint32_t n) {
+uint8_t ssd1306_digits(uint32_t n) {
     if (n < 10) {
         return 1;
     } else if (n < 100) {
@@ -196,7 +194,7 @@ uint8_t digits(uint32_t n) {
     }
 } // end digits
 
-void ultoa(uint32_t val, char *string) {
+void ssd1306_ultoa(uint32_t val, char *string) {
     uint8_t i = 0;
     uint8_t j = 0;
                                                                         // use do loop to convert val to string
@@ -210,10 +208,10 @@ void ultoa(uint32_t val, char *string) {
     } while ((val/=10) > 0);
 
     string[i++] = '\0';                                                 // add termination to string
-    reverse(string);                                                    // string was built in reverse, fix that
+    ssd1306_reverse(string);                                                    // string was built in reverse, fix that
 } // end ultoa
 
-void reverse(char *s)
+void ssd1306_reverse(char *s)
 {
     uint8_t i, j;
     uint8_t c;

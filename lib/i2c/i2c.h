@@ -8,7 +8,13 @@
 #ifndef I2C_H_
 #define I2C_H_
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <msp430.h>
+#include <stdint.h>
 
 unsigned char *PTxData;                                                       // Pointer to TX data
 unsigned char TxByteCtr;                                                      // number of bytes to TX
@@ -18,5 +24,9 @@ unsigned char TxByteCtr;                                                      //
  * ==================================================================== */
 void i2c_init(void);
 void i2c_write(unsigned char, unsigned char *, unsigned char);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* I2C_H_ */

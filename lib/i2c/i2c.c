@@ -4,9 +4,6 @@
 
 #include "i2c.h"
 
-#include <msp430.h>
-#include <stdint.h>
-
 #define SDA BIT7                                                        // i2c sda pin
 #define SCL BIT6                                                        // i2c scl pin
 

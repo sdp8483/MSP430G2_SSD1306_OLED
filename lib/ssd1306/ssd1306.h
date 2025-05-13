@@ -5,12 +5,16 @@
 #ifndef SSD1306_H_
 #define SSD1306_H_
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <msp430.h>
 #include <stdint.h>
 #include <string.h>
 #include "i2c.h"
-
-unsigned char buffer[17];                                                     // buffer for data transmission to screen
+#include "font_5x7.h"
 
 /* ====================================================================
  * Horizontal Centering Number Array
@@ -86,8 +90,12 @@ void ssd1306_printText(uint8_t, uint8_t, char *);
 void ssd1306_printTextBlock(uint8_t, uint8_t, char *);
 void ssd1306_printUI32(uint8_t, uint8_t, uint32_t, uint8_t);
 
-uint8_t digits(uint32_t);
-void ultoa(uint32_t, char *);
-void reverse(char *);
+uint8_t ssd1306_digits(uint32_t);
+void ssd1306_ultoa(uint32_t, char *);
+void ssd1306_reverse(char *);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SSD1306_H_ */
