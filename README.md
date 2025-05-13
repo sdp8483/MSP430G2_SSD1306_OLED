@@ -24,11 +24,11 @@ It should also be possible to use this library with [Code Composer Studio](https
 You can also find the SSD1306 and I2C library source files in [releases](https://github.com/sdp8483/MSP430G2_SSD1306_OLED/releases) along with release notes.
 
 ### Hookup
-Connect Vcc on the display to 3.3v on the LaunchPad.  
-Connect Gnd on the display to gnd on the LaunchPad.  
-Use pullup resistors to connect the SLC and SDA pins to 3.3v.  
-Connect SLC on the display to P1.6 on the LaunchPad.  
-Connect SDA on the display to P1.7 on the LaunchPad.  
+- Connect Vcc on the display to 3.3v on the LaunchPad.  
+- Connect Gnd on the display to gnd on the LaunchPad.  
+- Use pullup resistors to connect the SLC and SDA pins to 3.3v.  
+- Connect SLC on the display to P1.6 on the LaunchPad.  
+- Connect SDA on the display to P1.7 on the LaunchPad.  
 
 ![Simple Schematic](docs/pcb/images/hookup_example.png)
 
