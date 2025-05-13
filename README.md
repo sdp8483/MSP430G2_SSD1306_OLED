@@ -1,7 +1,10 @@
 # MSP430G2 SSD1306 OLED Display Library
 This is a simple library for interfacing a MSP430G2 LaunchPad with a 128x64 SSD1306 OLED display using I2C. Much of the code for the display has been borrowed from Adafuit's wonderful SSD1306 Arduino library with modifications so that it will work with the limited RAM available on the MSP430G2553.
 
+The example code uses 24 bytes of RAM and 2832 bytes of Flash. The MSP430G2553 has 512 bytes of RAM and 16384 bytes of Flash.
+
 ![Simple Example of Library Features](docs/sample.gif)
+
 
 ## Getting Started
 ### Prerequisites
